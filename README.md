@@ -2,6 +2,19 @@
 
 textlint rule to prevents the usage of kasheeda (or Tatweel in Arabic) `ـ` U+0640 symbol in languages like Arabic and Farsi
 
+## Fixable
+
+[![textlint rule](https://img.shields.io/badge/textlint-fixable-green.svg?style=social)](https://textlint.github.io/) 
+
+```
+textlint --rule no-kasheeda --fix README.md
+```
+## Example
+
+> يـولد جميع الناس أحراراً ومتـــســـاوين في الكرامة والحقوق
+
+> يـولد جميع الناس أحراراً ومتساوين في الكرامة والحقوق
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
@@ -25,22 +38,6 @@ Via CLI
 ```
 textlint --rule no-kasheeda README.md
 ```
-
-## Fixable
-
-[![textlint rule](https://img.shields.io/badge/textlint-fixable-green.svg?style=social)](https://textlint.github.io/) 
-
-```
-textlint --rule no-kasheeda --fix README.md
-```
-
-
-## Example
-
-> يـولد جميع الناس أحراراً ومتـــســـاوين في الكرامة والحقوق
-
-> يـولد جميع الناس أحراراً ومتساوين في الكرامة والحقوق
-
 ### Build
 
 Builds source codes for publish to the `lib` folder.
