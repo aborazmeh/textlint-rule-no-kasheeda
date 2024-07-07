@@ -30,7 +30,9 @@ textlint --rule no-kasheeda README.md
 
 [![textlint rule](https://img.shields.io/badge/textlint-fixable-green.svg?style=social)](https://textlint.github.io/) 
 
-`textlint --fix` "[يـولد جميع الناس أحراراً ومتـــســـاوين في الكرامة والحقوق](https://github.com/textlint/textlint/blob/master/docs/rule-fixer.md)"
+```
+textlint --rule no-kasheeda --fix README.md
+```
 
 
 ## Example
