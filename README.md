@@ -15,6 +15,15 @@ textlint --rule no-kasheeda --fix README.md
 
 > يـولد جميع الناس أحراراً ومتساوين في الكرامة والحقوق
 
+Kasheedas usage is acceptable when it's not surrounded by letters on each sides:
+
+> العام السابق 1445 هـ، والعام الحالي 1446 هـ
+
+> خَرَجتَ من المُنى مثلَ الـ  * * * ـحُمَيِّرِ غَرَّهُ وَتِدُه
+
+> وعندما جاء إلى الـ«بيت» دخل الـ"غرفة" ولم يجد أحداً
+
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):

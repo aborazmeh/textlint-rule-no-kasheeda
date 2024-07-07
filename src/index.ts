@@ -6,10 +6,19 @@ const report: TextlintRuleModule = (context) => {
         [Syntax.Str](node) { // "Str" node
             const text = getSource(node); // Get text
             const matches = text.matchAll(/ـ+/g);
+            const notLetter = (index: number) => /[^\p{Letter}]/u.test(text[index])
 
             for (const match of matches) {
                 const index = match.index ?? 0;
                 const matchRange = [index, index + match[0].length] as const;
+                if (
+                  index === 0 ||
+                  index + match[0].length === text.length ||
+                  notLetter(index - 1) ||
+                  notLetter(index + match[0].length)
+                ) {
+                  return
+                }
                 const remove = fixer.removeRange(matchRange);
 
                 const ruleError = new RuleError("Found kasheeda.", {
