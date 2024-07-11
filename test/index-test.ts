@@ -66,5 +66,14 @@ tester.run("rule", rule, {
                 },
             ],
         },
+        {
+            text: "فشﹱل",
+            output: "فشل",
+            errors: [
+                {
+                    range: [2, 3],
+                },
+            ],
+        },
     ],
 });

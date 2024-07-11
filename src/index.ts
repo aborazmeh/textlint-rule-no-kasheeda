@@ -27,6 +27,17 @@ function isChildNode(node: TxtNode, types: string[]) {
     });
 }
 
+function normalize(text: string) {
+    const replaces = {
+        ﹱ: "ـً",
+    };
+    for (const [key, value] of Object.entries(replaces)) {
+        const regex = new RegExp(key, "g");
+        text = text.replace(regex, value);
+    }
+    return text;
+}
+
 const report: TextlintRuleModule<Options> = (context, options = {}) => {
     const { Syntax, RuleError, fixer, report, getSource, locator } = context;
     const skip = options.skip ?? [];
@@ -43,7 +54,7 @@ const report: TextlintRuleModule<Options> = (context, options = {}) => {
             }
 
             const text = getSource(node); // Get text
-            const matches = text.matchAll(/ـ+/g);
+            const matches = normalize(text).matchAll(/ـ+/g);
             const notLetter = (index: number) => /[^\p{Letter}]/u.test(text[index]);
 
             for (const match of matches) {
