@@ -37,10 +37,16 @@ Via `.textlintrc.json`(Recommended)
 ```json
 {
     "rules": {
-        "no-kasheeda": true
+        "no-kasheeda": {
+            "skip": ["Header"]
+        }
     }
 }
 ```
+
+You can use skip array to define ignored blocks.
+
+    # مـقـدمـة
 
 Via CLI
 

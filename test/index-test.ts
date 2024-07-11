@@ -10,6 +10,13 @@ tester.run("rule", rule, {
         "العام السابق 1445 هـ، والعام الحالي 1446 هـ",
         "خَرَجتَ من المُنى مثلَ الـ      ـحُمَيِّرِ غَرَّهُ وَتِدُه",
         `وعندما جاء إلى الـ«بيت» دخل الـ"غرفة" ولم يجد أحداً`,
+        " this `كــود` is acceptable by default",
+        {
+            text: "# مـقـدمـة",
+            options: {
+                skip: ["Header"],
+            },
+        },
     ],
     invalid: [
         {
@@ -37,6 +44,24 @@ tester.run("rule", rule, {
                 {
                     message: "Found kasheeda.",
                     range: [32, 35],
+                },
+            ],
+        },
+        {
+            text: "# مـقـدمـة",
+            output: "# مقدمة",
+            options: {
+                skip: [],
+            },
+            errors: [
+                {
+                    range: [3, 4],
+                },
+                {
+                    range: [5, 6],
+                },
+                {
+                    range: [8, 9],
                 },
             ],
         },
