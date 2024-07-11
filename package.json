@@ -12,11 +12,19 @@
     "test": "textlint-scripts test",
     "build": "textlint-scripts build",
     "prepublish": "npm run --if-present build",
-    "watch": "textlint-scripts build --watch"
+    "watch": "textlint-scripts build --watch",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\""
+  },
+  "prettier": {
+    "singleQuote": false,
+    "printWidth": 120,
+    "tabWidth": 4,
+    "trailingComma": "es5"
   },
   "devDependencies": {
     "@textlint/types": "^14.0.4",
     "@types/node": "^20.14.9",
+    "prettier": "^3.3.2",
     "textlint-scripts": "^14.0.4",
     "textlint-tester": "^14.0.4",
     "ts-node": "^10.9.2",

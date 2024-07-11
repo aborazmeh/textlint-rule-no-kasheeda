@@ -18,9 +18,9 @@ tester.run("rule", rule, {
             errors: [
                 {
                     message: "Found kasheeda.",
-                    range: [1, 2]
-                }
-            ]
+                    range: [1, 2],
+                },
+            ],
         },
         {
             text: `يـولد جميع الناس أحراراً ومتـــســـاوين في الكرامة والحقوق`,
@@ -28,18 +28,17 @@ tester.run("rule", rule, {
             errors: [
                 {
                     message: "Found kasheeda.",
-                    range: [1, 2]
+                    range: [1, 2],
                 },
                 {
                     message: "Found kasheeda.",
-                    range: [28, 31]
+                    range: [28, 31],
                 },
                 {
                     message: "Found kasheeda.",
-                    range: [32, 35]
-                }
-            ]
+                    range: [32, 35],
+                },
+            ],
         },
-
-    ]
+    ],
 });

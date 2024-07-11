@@ -3,21 +3,22 @@ import type { TextlintRuleModule } from "@textlint/types";
 const report: TextlintRuleModule = (context) => {
     const { Syntax, RuleError, fixer, report, getSource, locator } = context;
     return {
-        [Syntax.Str](node) { // "Str" node
+        [Syntax.Str](node) {
+            // "Str" node
             const text = getSource(node); // Get text
             const matches = text.matchAll(/ـ+/g);
-            const notLetter = (index: number) => /[^\p{Letter}]/u.test(text[index])
+            const notLetter = (index: number) => /[^\p{Letter}]/u.test(text[index]);
 
             for (const match of matches) {
                 const index = match.index ?? 0;
                 const matchRange = [index, index + match[0].length] as const;
                 if (
-                  index === 0 ||
-                  index + match[0].length === text.length ||
-                  notLetter(index - 1) ||
-                  notLetter(index + match[0].length)
+                    index === 0 ||
+                    index + match[0].length === text.length ||
+                    notLetter(index - 1) ||
+                    notLetter(index + match[0].length)
                 ) {
-                  return
+                    return;
                 }
                 const remove = fixer.removeRange(matchRange);
 
@@ -27,11 +28,11 @@ const report: TextlintRuleModule = (context) => {
                 });
                 report(node, ruleError);
             }
-        }
-    }
+        },
+    };
 };
 
 export default {
     linter: report,
-    fixer: report
+    fixer: report,
 };
